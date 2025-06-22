@@ -1,3 +1,38 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
+class Post(models.Model):
+    TYPE_CHOICES=(
+        ('project','프로젝트'),
+        ('competition','공모전'),
+        ('supporters','서포터즈'),
+        ('etc','기타')
+    )
+    FIELD_CHOICES=(
+        ('planning','기획/아이디어'),
+        ('design','디자인'),
+        ('marketing','마케팅'),
+        ('arts','예체능'),
+        ('photography','사진/영상/UCC'),
+        ('etc','기타')
+    )
+    title = models.CharField(max_length=200)
+    project_type = models.TextField(verbose_name="프로젝트 유형", choices=TYPE_CHOICES, default="")
+    project_field = models.TextField(verbose_name="프로젝트 분야", choices=FIELD_CHOICES, default="")
+    target = models.TextField(verbose_name="프로젝트 대상", default="")
+    start_date = models.DateField(verbose_name="프로젝트 시작일", null=True, blank=True)
+    end_date = models.DateField(verbose_name="프로젝트 종료일", null=False, blank=True)
+    host_org = models.TextField(verbose_name="주관기관", default="")
+    description = models.TextField(verbose_name="프로젝트 설명", default="", null=True)
+
+    def __str__(self):
+        return self.title
+    
+class Comment(models.Model):
+    comment = models.CharField(verbose_name="댓글", max_length=200)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __Str__(self):
+        return self.comment
+    
