@@ -8,7 +8,7 @@ class FindsUserListSerializer(serializers.ModelSerializer):
 
     class Meta:
        model = MyProfile
-       fields = ['id', 'name', 'education', 'major', 'total_user', 'is_bookmarked']
+       fields = ['id', 'name', 'job', 'total_user', 'is_bookmarked']
 
     def get_total_user(self, obj):
         return MyProfile.objects.exclude(user=self.context['request'].user).count()

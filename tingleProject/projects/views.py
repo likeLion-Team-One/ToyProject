@@ -1,3 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework.permissions import IsAuthenticated
+from .models import Post, Comment
+from .serializers import PostSerializer, CommentSerializer
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+class PostViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class CommentViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+    
+    def get_queryset(self, **kwargs):
+        id = self.kwargs['post_id']
+        return self.queryset.filter(post=id)
+    def perform_create(self, serializer):
+        post_id = self.kwargs.get('post_id')  # URL에서 /projects/<pk>/comments
+        post = Post.objects.get(pk=post_id)
+        serializer.save(user=self.request.user, post=post)  # ⬅️ 여기 핵심!

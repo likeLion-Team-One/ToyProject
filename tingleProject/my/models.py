@@ -25,18 +25,18 @@ class MyProfile(models.Model):
         ('jeonbuk', '전북특별자치도'),
         ('jeju', '제주특별자치도'),
     ]
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=20)
     age = models.PositiveIntegerField(default=20)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     region = models.CharField(max_length=30, choices=REGION_CHOICES)
-    district = models.CharField(max_length=30, blank=True) 
+    district = models.CharField(max_length=30, blank=True)
+    job = models.CharField(max_length=50) 
     education = models.CharField(max_length=30, blank=True, null=True)
     major = models.CharField(max_length=30, blank=True, null=True)
-    project_experience = models.CharField(max_length=128, blank=True, null=True)
     detail = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.name} ({self.gender}), {self.region}"
+        return f"{self.name} ({self.gender}), {self.job}"
 
 
