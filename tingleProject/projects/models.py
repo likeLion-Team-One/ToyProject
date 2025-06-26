@@ -1,9 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
 class Post(models.Model):
     TYPE_CHOICES=(
+        ('team_project','조별과제'),
         ('project','프로젝트'),
         ('competition','공모전'),
         ('supporters','서포터즈'),
@@ -18,12 +21,12 @@ class Post(models.Model):
         ('etc','기타')
     )
     title = models.CharField(max_length=200)
-    project_type = models.TextField(verbose_name="프로젝트 유형", choices=TYPE_CHOICES, default="")
-    project_field = models.TextField(verbose_name="프로젝트 분야", choices=FIELD_CHOICES, default="")
-    target = models.TextField(verbose_name="프로젝트 대상", default="")
-    start_date = models.DateField(verbose_name="프로젝트 시작일", null=True, blank=True)
+    project_type = models.TextField(verbose_name="프로젝트 유형", null=False, choices=TYPE_CHOICES, default="")
+    project_field = models.TextField(verbose_name="프로젝트 분야", null=False, choices=FIELD_CHOICES, default="")
+    target = models.TextField(verbose_name="프로젝트 대상",null=False, default="")
+    start_date = models.DateField(verbose_name="프로젝트 시작일", null=False, blank=True)
     end_date = models.DateField(verbose_name="프로젝트 종료일", null=False, blank=True)
-    host_org = models.TextField(verbose_name="주관기관", default="")
+    host_org = models.TextField(verbose_name="주관기관", null=False, default="")
     description = models.TextField(verbose_name="프로젝트 설명", default="", null=True)
 
     def __str__(self):
@@ -32,7 +35,9 @@ class Post(models.Model):
 class Comment(models.Model):
     comment = models.CharField(verbose_name="댓글", max_length=200)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='project_comments')
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __Str__(self):
+    def __str__(self):
         return self.comment
     

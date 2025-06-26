@@ -6,5 +6,5 @@ class MyProfileSerializer(ModelSerializer):
         model = MyProfile
         fields = [
             'id', 'name', 'age', 'gender', 'region', 'district',
-            'education', 'major', 'project_experience', 'detail',
+            'job','education', 'major', 'detail',
         ]
