@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "BMJUA";
+  src: url("../fonts/BMJUA_ttf.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HakgyoansimPuzzleTTF-Black";
+  src: url("../fonts/Hakgyoansim\ Puzzle\ TTF\ Black.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
