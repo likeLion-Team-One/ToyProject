@@ -24,10 +24,13 @@ class TeamMemberSerializer(ModelSerializer):
         write_only=True
     )
     
+
+    
     class Meta:
         model = TeamMember
         fields = ['id', 'team', 'user', 'user_id', 'progress']
         read_only_fields = ['id', 'team']
+
 
 class TeamSerializer(ModelSerializer):
     project = ProjectSerializer(read_only=True)
@@ -40,10 +43,11 @@ class TeamSerializer(ModelSerializer):
     project_field = SerializerMethodField()
     target = SerializerMethodField()
     members = TeamMemberSerializer(many=True, read_only=True)  # 중첩 serializer 사용
+    created_by = serializers.CharField(source='created_by.username', read_only=True)
 
     class Meta:
         model = Team # Group 모델을 참조
-        fields = ['id', 'name', 'project', 'project_id', 'project_type', 'project_field', 'target', 'part', 'description', 'members']
+        fields = ['id', 'name', 'project', 'project_id', 'project_type', 'project_field', 'target', 'part', 'description', 'members', 'created_by']
         read_only_fields = ['id', 'status', 'created_by']  # Assuming 'id' is auto-generated and should not be set by the user
 
     #project에 저장된 field와 type을 반환하는 메소드
@@ -68,7 +72,7 @@ class TeamListSerializer(ModelSerializer):
 
     class Meta:
         model = Team
-        fields = ['id', 'name', 'project', 'project_type', 'project_field']
+        fields = ['id', 'name', 'project', 'project_type', 'project_field', 'created_by']
         read_only_fields = ['id', 'status']
 
     def get_project_type(self, obj):

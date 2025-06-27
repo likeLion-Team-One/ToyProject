@@ -24,4 +24,12 @@ urlpatterns = [
     path('', include('projects.urls')),
     path('', include('groups.urls')),
     path('', include('finds.urls')),
+    path('home/', include('home.urls')),
+    
+    # path('accounts/', include('accounts.urls')),
+    # path('my/', include('my.urls')),
+    # path('projects/', include('projects.urls')),
+    # path('groups/', include('groups.urls')),
+    # path('finds/', include('finds.urls')),
+    # path('home/', include('home.urls')),
 ]

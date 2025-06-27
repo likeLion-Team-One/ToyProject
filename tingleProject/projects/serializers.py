@@ -7,7 +7,7 @@ class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
         fields = '__all__'
-        read_only_fields = ['status']
+        read_only_fields = ['status', 'created_by']
     
 
 class CommentSerializer(ModelSerializer):
@@ -22,3 +22,4 @@ class BookmarkSerializer(ModelSerializer):
         model = Bookmark
         fields = ['id', 'user', 'post']
         read_only_fields = ['id', 'user']
+

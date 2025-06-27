@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     "accounts",
     "finds",
+    "home",
     "my",
     "projects",
     "groups",
