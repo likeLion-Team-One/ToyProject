@@ -10,12 +10,17 @@ class Team(models.Model):
         ('draft', '임시저장'),
         ('published', '게시됨'),
     )
+    STATUS_CHOICES = (
+        ('draft', '임시저장'),
+        ('published', '게시됨'),
+    )
     name = models.CharField(max_length=100, unique=True)
     project = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True)
     part = models.CharField(max_length=50)
     description = models.TextField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     progress = models.PositiveIntegerField(default=0) # 진행률 (0-100)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_teams', null=True)
 
     def __str__(self):
         return self.name
@@ -44,3 +49,6 @@ class Bookmark(models.Model):
 
     class Meta:
         unique_together = ('user', 'team')
+
+    
+

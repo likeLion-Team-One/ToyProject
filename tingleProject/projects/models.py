@@ -1,9 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.conf import settings
-from django.contrib.auth.models import User
-from django.conf import settings
-# Create your models here.
+
 class Post(models.Model):
     TYPE_CHOICES=(
         ('team_project','조별과제'),
@@ -24,6 +21,10 @@ class Post(models.Model):
         ('draft', '임시저장'),
         ('published', '게시됨'),
     )
+    STATUS_CHOICES = (
+        ('draft', '임시저장'),
+        ('published', '게시됨'),
+    )
     title = models.CharField(max_length=200)
     project_type = models.TextField(verbose_name="프로젝트 유형", null=False, choices=TYPE_CHOICES, default="")
     project_field = models.TextField(verbose_name="프로젝트 분야", null=False, choices=FIELD_CHOICES, default="")
@@ -33,6 +34,7 @@ class Post(models.Model):
     host_org = models.TextField(verbose_name="주관기관", null=False, default="")
     description = models.TextField(verbose_name="프로젝트 설명", default="", null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='created_posts', null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -53,3 +55,5 @@ class Bookmark(models.Model):
     class Meta:
         unique_together = ('user', 'post')
     
+
+
