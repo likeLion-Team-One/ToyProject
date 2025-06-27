@@ -6,10 +6,17 @@ from projects.models import Post
 User = get_user_model()
 
 class Team(models.Model):
+    STATUS_CHOICES = (
+        ('draft', '임시저장'),
+        ('published', '게시됨'),
+    )
     name = models.CharField(max_length=100, unique=True)
     project = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True)
     part = models.CharField(max_length=50)
     description = models.TextField()
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    progress = models.PositiveIntegerField(default=0) # 진행률 (0-100)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_teams', null=True)
 
     def __str__(self):
         return self.name
@@ -17,7 +24,6 @@ class Team(models.Model):
 class TeamMember(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='members')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     class Meta:
         unique_together = ('team', 'user')
 
@@ -30,3 +36,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment
+    
+
+#북마크
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_bookmarks')
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='group_bookmarks')
+
+    class Meta:
+        unique_together = ('user', 'team')
