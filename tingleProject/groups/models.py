@@ -17,7 +17,7 @@ class Team(models.Model):
     name = models.CharField(max_length=100, unique=True)
     project = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True)
     part = models.CharField(max_length=50)
-    description = models.TextField()
+    description = models.TextField(null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     progress = models.PositiveIntegerField(default=0) # 진행률 (0-100)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_teams', null=True)
@@ -43,9 +43,9 @@ class Comment(models.Model):
     
 
 #북마크
-class Bookmark(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='group_bookmarks')
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='group_bookmarks')
+class TeamBookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='team_bookmarks')
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='team_bookmarks')
 
     class Meta:
         unique_together = ('user', 'team')

@@ -3,8 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Post, Comment, Bookmark
-from .serializers import PostSerializer, CommentSerializer, BookmarkSerializer
+from .models import Post, Comment, ProjectBookmark
+from .serializers import PostSerializer, CommentSerializer, ProjectBookmarkSerializer
 from rest_framework.viewsets import ModelViewSet
 
 class PostViewSet(ModelViewSet):
@@ -44,29 +44,28 @@ class CommentViewSet(ModelViewSet):
         serializer.save(user=self.request.user, post=post)  
     
 #bookmark
-class BookmarkViewSet(ModelViewSet):
-    serializer_class = BookmarkSerializer
+class ProjectBookmarkViewSet(ModelViewSet):
+    serializer_class = ProjectBookmarkSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Bookmark.objects.filter(user=self.request.user)
+        return ProjectBookmark.objects.filter(user=self.request.user)
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-    
-    @action(detail=False, methods=['post'])
-    def toggle(self, request):
-        post_id = request.data.get('post')
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
         user = request.user
-        
-        # 이미 북마크가 있는지 확인
-        bookmark = Bookmark.objects.filter(user=user, post_id=post_id).first()
-        
+        post = serializer.validated_data['post']
+
+    # 토글
+        bookmark = ProjectBookmark.objects.filter(user=user, post=post).first()
         if bookmark:
-            # 북마크가 있으면 삭제
             bookmark.delete()
-            return Response({'message': '북마크가 삭제되었습니다.', 'bookmarked': False}, status=status.HTTP_200_OK)
+            return Response({'status': 'bookmark removed'})
         else:
-            # 북마크가 없으면 생성
-            Bookmark.objects.create(user=user, post_id=post_id)
-            return Response({'message': '북마크가 추가되었습니다.', 'bookmarked': True}, status=status.HTTP_201_CREATED)
+            ProjectBookmark.objects.create(user=user, post=post)
+            return Response({'status': 'bookmark added'})
+
+        
+        

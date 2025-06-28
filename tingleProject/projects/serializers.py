@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
-from .models import Post, Comment, Bookmark
+from .models import Post, Comment, ProjectBookmark
 
 class PostSerializer(ModelSerializer):
     
@@ -17,9 +17,14 @@ class CommentSerializer(ModelSerializer):
         read_only_fields = ['post']
 
 
-class BookmarkSerializer(ModelSerializer):
+class ProjectBookmarkSerializer(ModelSerializer):
+    post_id = serializers.PrimaryKeyRelatedField(
+        queryset=Post.objects.all(),
+        source='post',        # 내부에서는 post 필드로 매핑
+        write_only=True       # 입력 시에만 쓰고, 출력에는 안 보임
+    )
     class Meta:
-        model = Bookmark
-        fields = ['id', 'user', 'post']
-        read_only_fields = ['id', 'user']
+        model = ProjectBookmark
+        fields = ['id', 'user', 'post', 'post_id']
+        read_only_fields = ['id', 'user', 'post']
 
