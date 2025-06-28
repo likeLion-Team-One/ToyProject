@@ -49,12 +49,26 @@ INSTALLED_APPS = [
     "my",
     "projects",
     "groups",
+
+    'corsheaders',
+
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+
+    # CamelCaseJSON 관련 설정
+    'DEFAULT_RENDERER_CLASSES': (
+	'djangorestframework_camel_case.render.CamelCaseJSONRenderer', 
+	'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+	),
+	'DEFAULT_PARSER_CLASSES': (
+	'djangorestframework_camel_case.parser.CamelCaseFormParser', 
+	'djangorestframework_camel_case.parser.CamelCaseMultiPartParser',
+	'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+	),
 }
 
 SIMPLE_JWT = {
@@ -106,6 +120,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+CORS_ORIGIN_ALLOW_ALL = True  # 모든 도메인 허용
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
 ]
 
 ROOT_URLCONF = 'tingleProject.urls'

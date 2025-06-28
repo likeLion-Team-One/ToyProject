@@ -48,7 +48,7 @@ class Comment(models.Model):
     def __str__(self):
         return self.comment
     
-class Bookmark(models.Model):
+class ProjectBookmark(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     
