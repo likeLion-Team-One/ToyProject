@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Temp = ({ num, title, date }) => {
   const navigate = useNavigate();
   const goback = () => {
-    navigate(`/`);
+    navigate(`/home`);
   };
   const goTrash = () => {
     navigate(`/trash`);

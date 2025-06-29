@@ -31,7 +31,7 @@ const people = [
 const Find = ({ num }) => {
   const navigate = useNavigate();
   const goHome = () => {
-    navigate(`/`);
+    navigate(`/home`);
   };
   const goDetail = (person) => {
     console.log("전달되는 데이터:", person);

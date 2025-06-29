@@ -10,7 +10,7 @@ const my = ["최근 본 게시물", "스크랩", "프로필 설정"];
 const Menu = () => {
   const navigate = useNavigate();
   const goHome = () => {
-    navigate(`/`);
+    navigate(`/home`);
   };
 
   return (

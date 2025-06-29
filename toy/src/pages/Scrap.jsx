@@ -7,7 +7,7 @@ const Scrap = ({ num }) => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    navigate(`/home`);
   };
 
   return (

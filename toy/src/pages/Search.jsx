@@ -7,7 +7,7 @@ const Search = ({ keyword }) => {
   const navigate = useNavigate();
 
   const goback = () => {
-    navigate(`/`);
+    navigate(`/home`);
   };
 
   return (

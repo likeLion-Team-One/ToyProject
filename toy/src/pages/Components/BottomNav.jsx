@@ -26,8 +26,13 @@ const Menu = [
     ActiveIcon: CheckFindIcon,
     path: "/find",
   },
-  { label: "홈", Icon: HomeIcon, ActiveIcon: CheckHomeIcon, path: "/" },
-  { label: "그룹", Icon: GroupIcon, ActiveIcon: CheckGroupIcon, path: "group" },
+  { label: "홈", Icon: HomeIcon, ActiveIcon: CheckHomeIcon, path: "/home" },
+  {
+    label: "그룹",
+    Icon: GroupIcon,
+    ActiveIcon: CheckGroupIcon,
+    path: "/group",
+  },
   { label: "마이", Icon: MyIcon, ActiveIcon: CheckMyIcon, path: "/my" },
 ];
 
