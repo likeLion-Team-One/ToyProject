@@ -32,14 +32,16 @@ const Card = ({
       </C.Card>
       <C.Scroll>
         <img
+          src={`${process.env.PUBLIC_URL}/image/circle.svg`}
+          alt="logo"
+          width="30px"
+          style={{ top: 0, right: 0 }}
+        />
+        <img
           src={`${process.env.PUBLIC_URL}/image/right.svg`}
           alt="logo"
           width="18px"
-        />
-        <img
-          src={`${process.env.PUBLIC_URL}/image/circle.svg`}
-          alt="logo"
-          width="25px"
+          style={{ top: 8, right: 6 }}
         />
       </C.Scroll>
     </C.CardWrapper>

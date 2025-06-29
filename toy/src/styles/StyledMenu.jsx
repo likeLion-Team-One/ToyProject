@@ -36,10 +36,10 @@ export const Title = styled.div`
   flex-shrink: 0;
   color: #000;
   text-align: center;
-  font-family: "Hakgyoansim Puzzle OTF";
+  font-family: "HakgyoansimPuzzleTTF-Black";
   font-size: 25px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 300;
   line-height: normal;
 `;
 
@@ -49,7 +49,7 @@ export const BContainer = styled.div`
 
 export const BTitle = styled.div`
   color: #5061ff;
-  font-family: "BM JUA_OTF";
+  font-family: "BMJUA";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -71,7 +71,7 @@ export const BContent = styled.div`
 
 export const BoxBtn = styled.div`
   width: 45%;
-  font-family: SUIT;
+  font-family: "SUIT-Regular";
   font-size: 15px;
   font-style: normal;
   font-weight: 600;

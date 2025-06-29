@@ -41,6 +41,7 @@ export const Search = styled.div`
 `; // 검색바
 
 export const LogBox = styled.div`
+  flex-direction: column;
   padding: 15px;
   width: 393px;
   height: 722px;
@@ -60,9 +61,13 @@ export const Back = styled.div`
   flex-shrink: 0;
 `;
 
-export const box = styled.div`
+export const SBox = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 96px;
-  height: 31px;
+  height: 35px;
   flex-shrink: 0;
   border-radius: 30px;
   border: 1px solid #5061ff;
@@ -70,9 +75,19 @@ export const box = styled.div`
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   color: #000;
   text-align: center;
-  font-family: SUIT;
+  font-family: "SUIT-Regular";
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  img {
+    position: absolute;
+    right: 15px;
+  }
+`;
+
+export const rowScroll = styled.div`
+  display: flex;
+  align-items: column;
 `;

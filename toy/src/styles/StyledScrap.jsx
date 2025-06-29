@@ -24,10 +24,10 @@ export const Bar = styled.div`
   .center {
     flex: 1; // 남은 공간을 모두 차지
     text-align: center;
-    font-family: "Hakgyoansim Puzzle OTF";
+    font-family: "HakgyoansimPuzzleTTF-Black";
     font-size: 25px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 500;
     line-height: normal;
   }
 `;
@@ -39,15 +39,79 @@ export const Back = styled.div`
 `;
 
 export const LogBox = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 15px;
   width: 393px;
   height: 722px;
   flex-shrink: 0;
   color: #000;
-  font-family: SUIT;
-  font-size: 20px;
+  font-family: "SUIT";
+  font-size: 15px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: normal;
   background: linear-gradient(180deg, rgba(220, 234, 255, 0.3) 0%, #fff 100%);
+`;
+
+export const CBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  border: 1px solid #5061ff;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #000;
+  text-align: center;
+  font-family: SUIT;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`;
+
+export const Title = styled.div`
+  color: #5061ff;
+  font-family: "BMJUA";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 10px;
+`;
+
+export const ComponentsBox = styled.div`
+  margin: 0 auto;
+  position: relative;
+  width: 353px;
+  height: 118px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 2px 2px #f2f2f2;
+
+  .Comment {
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    stroke-width: 1.5px;
+    stroke: #5061ff;
+  }
+
+  .Scrap {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 17px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: #5061ff;
+  }
 `;

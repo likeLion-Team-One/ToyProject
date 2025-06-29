@@ -1,5 +1,6 @@
 import * as H from "../styles/StyledHome.jsx";
 import Card from "./Components/ToyCard.jsx";
+import Group from "./Components/GroupBox.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -46,13 +47,19 @@ const Home = () => {
       <H.Text>최근 완료된 프로젝트</H.Text>
       <Card
         header="해커톤 대회"
-        image={`${process.env.PUBLIC_URL}/image/con.png`}
+        image={`${process.env.PUBLIC_URL}/image/congratulation.png`}
         bgColor="#fff"
         borderColor="#5061FF"
         shadowColor="#5061FF"
         hdColor="#5061FF"
         people="6"
       ></Card>
+      <H.Text>추천 그룹</H.Text>
+      <H.rowScroll>
+        <Group></Group>
+        <Group></Group>
+        <Group></Group>
+      </H.rowScroll>
     </H.Container>
   );
 };

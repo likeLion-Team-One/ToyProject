@@ -32,6 +32,7 @@ export const Logo = styled.div`
 `; // 상단 로고
 
 export const Search = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   width: 351px;
@@ -41,9 +42,11 @@ export const Search = styled.div`
   border: 1px solid #5061ff;
   background: #fff;
   padding: 0 15px;
-  margin: 36px 21px 0 21px;
-  justify-content: space-between;
-
+  margin: 10px 21px 20px; 21px;
+  img {
+    position: absolute;
+    right: 20px;
+  }
   input {
     border: none;
     outline: none;
@@ -66,7 +69,7 @@ export const Plus = styled.div`
 
 export const Text = styled.div`
   color: #5773ff;
-  font-family: "BM JUA_OTF";
+  font-family: "BMJUA";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -76,4 +79,9 @@ export const Text = styled.div`
   margin-bottom: 15px;
   margin-left: 32px;
   width: 100%;
+`;
+
+export const rowScroll = styled.div`
+  display: flex;
+  align-items: column;
 `;

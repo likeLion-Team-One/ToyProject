@@ -1,7 +1,8 @@
 import * as S from "../styles/StyledSearch.jsx";
+import Key from "./Components/SearchKeyword.jsx";
 import { useNavigate } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ keyword }) => {
   const navigate = useNavigate();
 
   const goback = () => {
@@ -22,7 +23,14 @@ const Search = () => {
           />
         </S.Search>
       </S.Bar>
-      <S.LogBox>최근 검색어</S.LogBox>
+      <S.LogBox>
+        최근 검색어
+        <S.rowScroll>
+          <div style={{ display: "flex", gap: "10px", padding: "15px" }}>
+            <Key keyword={keyword}></Key>
+          </div>
+        </S.rowScroll>
+      </S.LogBox>
     </S.Container>
   );
 };

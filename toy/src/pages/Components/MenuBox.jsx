@@ -1,4 +1,4 @@
-import * as M from "../styles/StyledMenu.jsx";
+import * as M from "../../styles/StyledMenu.jsx";
 
 const MenuBox = ({ title, items }) => {
   return (

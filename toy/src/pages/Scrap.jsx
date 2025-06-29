@@ -1,7 +1,8 @@
 import * as S from "../styles/StyledScrap.jsx";
 import { useNavigate } from "react-router-dom";
+import ComponentBox from "./Components/ScrapComponent.jsx";
 
-const Search = () => {
+const Scrap = ({ num }) => {
   const navigate = useNavigate();
 
   const goback = () => {
@@ -16,9 +17,23 @@ const Search = () => {
         </S.Back>
         <div className="center">스크랩</div>
       </S.Bar>
-      <S.LogBox></S.LogBox>
+      <S.LogBox>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <S.CBox>전체</S.CBox>
+          <S.CBox>프로젝트</S.CBox>
+          <S.CBox>그룹</S.CBox>
+        </div>
+        {num}개의 글
+        <div>
+          <S.Title>프로젝트</S.Title>
+          <ComponentBox></ComponentBox>
+        </div>
+        <div>
+          <S.Title>그룹</S.Title>
+        </div>
+      </S.LogBox>
     </S.Container>
   );
 };
 
-export default Search;
+export default Scrap;

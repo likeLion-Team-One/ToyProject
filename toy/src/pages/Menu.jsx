@@ -1,5 +1,5 @@
 import * as M from "../styles/StyledMenu.jsx";
-import MenuBox from "./MenuBox.jsx";
+import MenuBox from "../pages/Components/MenuBox.jsx";
 import { useNavigate } from "react-router-dom";
 
 const project = ["프로젝트 공고", "프로젝트 추가"];

@@ -16,16 +16,17 @@ export const Card = styled.div`
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
 `;
 
 export const Header = styled.div`
   color: ${({ hdColor }) => hdColor || "#5061ff"};
-  font-family: "BM JUA_OTF";
+  font-family: "BMJUA";
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
+  text-align: left;
   line-height: normal;
+  margin-top: 10px;
 `;
 
 export const People = styled.div`
@@ -50,10 +51,11 @@ export const Text = styled.div`
 `;
 
 export const Icon = styled.div`
-  width: 116.198px;
-  height: 116.198px;
+  width: 110px;
+  height: 110px;
   flex-shrink: 0;
   aspect-ratio: 116.2/116.2;
+  margin-top: 10px;
 `;
 
 export const Bar = styled.div``;
@@ -64,4 +66,57 @@ export const Scroll = styled.div`
   text-align: right;
   margin-top: 20px;
   position: relative;
+
+  img {
+    position: absolute;
+  }
+`;
+
+export const Box = styled.div`
+  width: 136px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  position: relative;
+`;
+
+export const BTitle = styled.div`
+  color: #5061ff;
+  font-family: font-family: "BMJUA";;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+export const BContent = styled.div`
+  color: #000;
+  font-family: SUIT;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+export const BoxBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 110px;
+  left: 29px;
+  width: 79px;
+  height: 34.207px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  border: 1px solid #5061ff;
+  background: #5061ff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  font-family: SUIT;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
