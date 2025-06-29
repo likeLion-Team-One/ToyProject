@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: 852px;
   background: #fff;
   flex-direction: column;
-  align-items: "center"; // 가로(수평) 가운데 정렬
+  align-items: center; // 가로(수평) 가운데 정렬
 `; // 전체 화면
 
 export const Bar = styled.div`
@@ -202,4 +202,52 @@ export const Inform = styled.div`
   display: flex;
   align-items: column;
   justify-content: space-between;
+`;
+
+export const StatusTable = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 180px;
+
+  .category {
+    padding: 8px;
+    color: #000;
+    font-family: "SUIT";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .content {
+    color: #000;
+    font-family: "SUIT";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+`;
+
+export const UserIntro = styled.div`
+  display: flex;
+  width: 296px;
+  height: 162px;
+  margin: 20px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(80, 97, 255, 0.05);
+  box-shadow: 0px 0px 2px 2px #f2f2f2;
+  color: #000;
+
+  div {
+    padding: 10px;
+    font-family: "SUIT";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 `;

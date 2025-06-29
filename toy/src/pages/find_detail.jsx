@@ -1,16 +1,24 @@
 import * as F from "../styles/StyledFindTeam.jsx";
-import { useNavigate } from "react-router-dom";
-import StatusBox from "../pages/Components/StatusBox.jsx";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import StatusBox from "./Components/StatusBox.jsx";
+import { ReactComponent as Heart } from "../image/heart.svg";
 
-const Detail = ({ person }) => {
-  // const location = useLocation();
-  // const person = location.state?.person;
+const Detail = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const person = location.state?.person;
+
+  const goback = () => {
+    navigate(`/find`);
+  };
 
   return (
     <F.Container>
       <F.Bar>
-        <img src={`${process.env.PUBLIC_URL}/image/halfX.svg`} />
+        <img
+          src={`${process.env.PUBLIC_URL}/image/halfX.svg`}
+          onClick={goback}
+        />
         <div className="center">팀원 정보</div>
       </F.Bar>
       <F.LogBox>
@@ -18,6 +26,14 @@ const Detail = ({ person }) => {
           className="picture"
           src={`${process.env.PUBLIC_URL}/image/profile.png`}
         />
+        <Heart
+          style={{
+            zIndex: "10",
+            position: "absolute",
+            right: "17",
+            top: "120",
+          }}
+        ></Heart>
         <F.ProfileInform>
           <F.ProfileNameBig>{person.info.name}</F.ProfileNameBig>
           <F.AddBtnSmall style={{ width: "69px" }}>그룹 추가</F.AddBtnSmall>

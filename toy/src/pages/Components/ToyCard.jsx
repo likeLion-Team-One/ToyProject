@@ -23,9 +23,10 @@ const Card = ({
             src={`${process.env.PUBLIC_URL}/image/people.svg`}
             alt="logo"
             width="18px"
+            style={{ marginTop: "5px" }}
           />
         </C.People>
-        <C.Text>{people}</C.Text>
+        <C.Text hdColor={hdColor}>{people}</C.Text>
         <C.Icon>
           <img src={image} alt="Icon" />
         </C.Icon>

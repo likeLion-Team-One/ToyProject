@@ -1,6 +1,7 @@
 import * as S from "../styles/StyledScrap.jsx";
 import { useNavigate } from "react-router-dom";
 import ComponentBox from "./Components/ScrapComponent.jsx";
+import BottomNav from "./Components/BottomNav.jsx";
 
 const Scrap = ({ num }) => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const Scrap = ({ num }) => {
           <S.Title>그룹</S.Title>
         </div>
       </S.LogBox>
+      <BottomNav idx={-1}></BottomNav>
     </S.Container>
   );
 };

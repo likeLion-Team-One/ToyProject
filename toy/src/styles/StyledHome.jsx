@@ -85,3 +85,10 @@ export const rowScroll = styled.div`
   display: flex;
   align-items: column;
 `;
+
+export const Scroll = styled.div`
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;

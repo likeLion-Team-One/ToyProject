@@ -12,6 +12,7 @@ const people = [
       job: "대학생(학부)",
       status: "동덕여자대학교 3학년 재학",
       major: "커뮤니케이션콘텐츠전공",
+      intro: "안녕하세요, 현재 광고 AE를 진로로 삼고 있는 이동덕이라고 합니다.",
     },
   },
   {
@@ -46,7 +47,6 @@ const Find = ({ num }) => {
         <div className="center">팀원 찾기</div>
         <img
           src={`${process.env.PUBLIC_URL}/image/heart.svg`}
-          onClick={goDetail}
           style={{ width: "26px" }}
         />
       </F.Bar>

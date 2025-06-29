@@ -8,7 +8,7 @@ import First from "./pages/First.jsx";
 import Post from "./pages/Post.jsx";
 import Temp from "./pages/Temp.jsx";
 import Find from "./pages/FindTeam.jsx";
-import Detail from "./pages/find_detail.jsx";
+import Detail from "./pages/Find_detail.jsx";
 
 function App() {
   /*const [dataList, setDataList] = useState([]);

@@ -16,6 +16,7 @@ export const Card = styled.div`
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 30px;
 `;
 
 export const Header = styled.div`
@@ -42,6 +43,7 @@ export const People = styled.div`
 `;
 
 export const Text = styled.div`
+  margin-top: 8px;
   color: ${({ hdColor }) => hdColor || "#5061ff"};
   font-family: "BM JUA_OTF";
   font-size: 20px;
