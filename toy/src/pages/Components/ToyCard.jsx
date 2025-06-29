@@ -8,6 +8,10 @@ const Card = ({
   shadowColor,
   hdColor,
   people,
+  progress,
+  statusText,
+  statusColor,
+  children,
 }) => {
   return (
     <C.CardWrapper>
@@ -30,6 +34,17 @@ const Card = ({
         <C.Icon>
           <img src={image} alt="Icon" />
         </C.Icon>
+
+        {/* {progress !== undefined && (
+          <>
+            <C.ProgressLabel>
+              진행률 <span style={{ color: "#ff4757" }}>{progress}%</span>
+            </C.ProgressLabel>
+            <C.ProgressBar>
+              <C.ProgressFill style={{ width: `${progress}%` }} />
+            </C.ProgressBar>
+          </>
+        )} */}
       </C.Card>
       <C.Scroll>
         <img

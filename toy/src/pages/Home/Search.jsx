@@ -1,6 +1,6 @@
-import * as S from "../styles/StyledSearch.jsx";
-import Key from "./Components/SearchKeyword.jsx";
-import BottomNav from "./Components/BottomNav.jsx";
+import * as S from "../../styles/StyledSearch.jsx";
+import Key from "../Components/SearchKeyword.jsx";
+import BottomNav from "../Components/BottomNav.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Search = ({ keyword }) => {

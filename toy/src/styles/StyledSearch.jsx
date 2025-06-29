@@ -47,7 +47,7 @@ export const LogBox = styled.div`
   height: 722px;
   flex-shrink: 0;
   color: #000;
-  font-family: SUIT;
+  font-family: "SUIT";
   font-size: 20px;
   font-style: normal;
   font-weight: 700;

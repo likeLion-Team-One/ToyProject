@@ -1,4 +1,4 @@
-import * as F from "../styles/StyledFirst.jsx";
+import * as F from "../../styles/StyledFirst.jsx";
 import { useNavigate } from "react-router-dom";
 
 const First = () => {

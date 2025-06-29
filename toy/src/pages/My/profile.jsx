@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import BottomNav from "./Components/BottomNav.jsx";
-import * as P from "../styles/styleProfile";
+import BottomNav from "../Components/BottomNav.jsx";
+import * as P from "../../styles/styleProfile";
 
 const Profile = () => {
   const navigate = useNavigate();

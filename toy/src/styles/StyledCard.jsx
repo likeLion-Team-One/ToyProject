@@ -60,7 +60,35 @@ export const Icon = styled.div`
   margin-top: 10px;
 `;
 
-export const Bar = styled.div``;
+export const ProgressLabel = styled.div`
+  font-family: "SUIT";
+  font-size: 15px;
+  color: #fff;
+  margin-top: 12px;
+`;
+
+export const ProgressBar = styled.div`
+  width: 180px;
+  height: 12px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  margin: 8px 0 0 0;
+  overflow: hidden;
+`;
+
+export const ProgressFill = styled.div`
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b 60%, #fff 100%);
+  border-radius: 8px;
+  transition: width 0.3s;
+`;
+
+export const StatusText = styled.div`
+  margin-top: 18px;
+  font-family: "BMJUA";
+  font-size: 22px;
+  color: ${({ statusColor }) => statusColor || "#ff4757"};
+`;
 
 export const Scroll = styled.div`
   width: 100%;
@@ -83,12 +111,12 @@ export const Box = styled.div`
 `;
 
 export const BTitle = styled.div`
-  color: #5061ff;
-  font-family: font-family: "BMJUA";;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+color: #5061ff;
+font-family: font-family: "BMJUA";;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 `;
 
 export const BContent = styled.div`

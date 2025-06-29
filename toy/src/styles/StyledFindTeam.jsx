@@ -154,17 +154,18 @@ export const AddBtnSmall = styled(AddBtn)`
 export const LogBox = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   padding: 15px;
   width: 393px;
   height: 722px;
   flex-shrink: 0;
   color: #000;
-  font-family: SUIT;
-  font-size: 20px;
+  font-family: "SUIT";
+  font-size: 15px;
   font-style: normal;
   font-weight: 700;
+  text-align: left;
   line-height: normal;
   background: linear-gradient(180deg, rgba(220, 234, 255, 0.3) 0%, #fff 100%);
   .picture {
@@ -250,4 +251,15 @@ export const UserIntro = styled.div`
     font-weight: 400;
     line-height: normal;
   }
+`;
+
+export const ComponentsBox = styled.div`
+  margin: 0 auto;
+  position: relative;
+  width: 353px;
+  height: 118px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 2px 2px #f2f2f2;
 `;

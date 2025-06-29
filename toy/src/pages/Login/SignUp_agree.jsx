@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import * as SU from "../styles/styleSignUp_agree";
+import * as SU from "../../styles/styleSignUp_agree";
 
 const SignUp_agree = () => {
   const navigate = useNavigate();

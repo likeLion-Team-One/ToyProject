@@ -1,7 +1,7 @@
-import * as H from "../styles/StyledHome.jsx";
-import Card from "./Components/ToyCard.jsx";
-import Group from "./Components/GroupBox.jsx";
-import BottomNav from "./Components/BottomNav.jsx";
+import * as H from "../../styles/StyledHome.jsx";
+import Card from "../Components/ToyCard.jsx";
+import Group from "../Components/GroupBox.jsx";
+import BottomNav from "../Components/BottomNav.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Home = ({ idx }) => {
@@ -45,6 +45,7 @@ const Home = ({ idx }) => {
           shadowColor="#5061FF;"
           hdColor="#fff"
           people="4"
+          progress={99}
         ></Card>
         <H.Text>최근 완료된 프로젝트</H.Text>
         <Card

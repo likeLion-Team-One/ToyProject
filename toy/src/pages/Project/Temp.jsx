@@ -1,5 +1,5 @@
-import * as T from "../styles/StyledTemp.jsx";
-import TempBox from "./Components/TempBox.jsx";
+import * as T from "../../styles/StyledTemp.jsx";
+import TempBox from "../Components/TempBox.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Temp = ({ num, title, date }) => {
@@ -14,7 +14,10 @@ const Temp = ({ num, title, date }) => {
     <T.Container>
       <T.Bar>
         <T.Back onClick={goback}>
-          <img src={`${process.env.PUBLIC_URL}/image/halfX.svg`}></img>
+          <img
+            src={`${process.env.PUBLIC_URL}/image/halfX.svg`}
+            onClick={goTrash}
+          ></img>
         </T.Back>
         <div className="center">임시저장</div>
       </T.Bar>

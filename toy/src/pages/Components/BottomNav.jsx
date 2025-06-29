@@ -33,7 +33,7 @@ const Menu = [
     ActiveIcon: CheckGroupIcon,
     path: "/group",
   },
-  { label: "마이", Icon: MyIcon, ActiveIcon: CheckMyIcon, path: "/my" },
+  { label: "마이", Icon: MyIcon, ActiveIcon: CheckMyIcon, path: "/profile" },
 ];
 
 const ACTIVE_COLOR = "#3366ff"; // 선택된 메뉴 색상

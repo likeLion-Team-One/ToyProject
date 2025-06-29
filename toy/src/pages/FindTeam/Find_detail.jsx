@@ -1,7 +1,7 @@
-import * as F from "../styles/StyledFindTeam.jsx";
+import * as F from "../../styles/StyledFindTeam.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
-import StatusBox from "./Components/StatusBox.jsx";
-import { ReactComponent as Heart } from "../image/heart.svg";
+import StatusBox from "../Components/StatusBox.jsx";
+import { ReactComponent as Heart } from "../../image/heart.svg";
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -10,6 +10,11 @@ const Detail = () => {
 
   const goback = () => {
     navigate(`/find`);
+  };
+
+  const goAdd = (e) => {
+    e.stopPropagation(); // 상위 onClick 방지!
+    navigate(`/addgroup`);
   };
 
   return (
@@ -36,7 +41,9 @@ const Detail = () => {
         ></Heart>
         <F.ProfileInform>
           <F.ProfileNameBig>{person.info.name}</F.ProfileNameBig>
-          <F.AddBtnSmall style={{ width: "69px" }}>그룹 추가</F.AddBtnSmall>
+          <F.AddBtnSmall style={{ width: "69px" }} onClick={goAdd}>
+            그룹 추가
+          </F.AddBtnSmall>
           <StatusBox info={person.info}></StatusBox>
         </F.ProfileInform>
       </F.LogBox>

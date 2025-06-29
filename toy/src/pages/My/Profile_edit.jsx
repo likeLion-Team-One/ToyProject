@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as P from "../styles/styleProfile_edit";
+import * as P from "../../styles/styleProfile_edit";
 
 const Profile_edit = () => {
   const navigate = useNavigate();

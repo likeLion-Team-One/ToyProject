@@ -1,5 +1,6 @@
-import * as F from "../styles/StyledFindTeam.jsx";
-import Profile from "../pages/Components/Profile.jsx";
+import * as F from "../../styles/StyledFindTeam.jsx";
+import Profile from "../../pages/Components/Profile.jsx";
+import BottomNav from "../Components/BottomNav.jsx";
 import { useNavigate } from "react-router-dom";
 
 const people = [
@@ -70,6 +71,7 @@ const Find = ({ num }) => {
           ))}
         </F.ProfileWrapper>
       </F.LogBox>
+      <BottomNav idx={1}></BottomNav>
     </F.Container>
   );
 };

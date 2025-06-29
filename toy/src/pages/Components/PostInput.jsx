@@ -1,5 +1,5 @@
 import * as P from "../../styles/StyledPost";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const PostInput = ({ title, height, Theight, hint }) => {
   return (
@@ -19,29 +19,64 @@ const PostSelect = ({
   width,
   Uwidth,
   options = [],
+  value,
+  onChange,
+  error,
 }) => {
-  const [currentValue, setCurrentValue] = useState("선택 안함");
-  const [showOptions, setShowOptions] = useState("");
+  const [showOptions, setShowOptions] = useState(false);
+  const dropdownRef = useRef(null);
 
-  const handleSelectOption = (opt) => {
-    setCurrentValue(opt);
-    setShowOptions(false);
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setShowOptions(false);
+      }
+    };
 
-  const handleToggleOptions = () => {
-    setShowOptions((prev) => !prev);
-  };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <P.IWrapper>
       <P.ITitle>{title}</P.ITitle>
-      <P.IContent height={height} Theight={Theight} width={width}>
-        <ul Uwidth={Uwidth}>
-          {options.map((opt, idx) => (
-            <li key={idx}>{opt}</li>
-          ))}
-        </ul>
-        <image src={`${process.env.PUBLIC_URL}/image/list.svg`} />
+      <P.IContent
+        height={height}
+        Theight={Theight}
+        width={width}
+        onClick={() => setShowOptions(!showOptions)}
+        ref={dropdownRef}
+        className={`${error ? "error" : ""} ${showOptions ? "active" : ""}`}
+        style={{ cursor: "pointer", position: "relative" }}
+      >
+        <div className="selected-value">{value || "선택 안함"}</div>
+        <img
+          src={`${process.env.PUBLIC_URL}/image/list.svg`}
+          alt="dropdown"
+          style={{
+            position: "absolute",
+            right: "15px",
+            top: "50%",
+            transform: "translateY(-50%)",
+          }}
+        />
+        {showOptions && (
+          <P.DropdownOptions Uwidth={Uwidth}>
+            {options.map((opt, idx) => (
+              <P.DropdownOption
+                key={idx}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onChange(opt);
+                  setShowOptions(false);
+                }}
+                className={value === opt ? "selected" : ""}
+              >
+                {opt}
+              </P.DropdownOption>
+            ))}
+          </P.DropdownOptions>
+        )}
       </P.IContent>
     </P.IWrapper>
   );
