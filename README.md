@@ -14,7 +14,18 @@
 **'팅글(Tingle)'** 은 프로젝트 및 팀원 정보를 한 눈에 확인하고 팀을 형성할 수 있는 서비스로, 사용자가 원하는 조건을 갖춘 팀원을 보다 효율적으로 구할 수 있도록 합니다.
 
 <br><br>
-<h2>👥 Members</h2>
+<h2>👥 Team 큰일이야</h2>
 
 |PM / DE|FE|BE|BE|
 |:--:|:--:|:--:|:--:|
+![Image](https://github.com/user-attachments/assets/45ce1e6b-230b-4111-92cf-4d7e45004faa)|![Image](https://github.com/user-attachments/assets/8507c8cf-2b63-4e4a-b534-ffb6c1b99c47)|![Image](https://github.com/user-attachments/assets/35057e3c-45bc-487c-bb75-72e2c1822cf6)|![Image](https://github.com/user-attachments/assets/14d5adc8-4e61-4fa2-8e1e-5cf469f6b779)
+|장수경|전지은|이주연|최이주|
+
+<br><br>
+<h2>🛠️ Tech Stack</h2>
+
+**FE**:
+
+**BE**:
+
+**Tool**:
