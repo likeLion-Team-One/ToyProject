@@ -38,8 +38,8 @@
 <br><br>
 <h2>🛠️ Tech Stack</h2>
 
-- **FE**:
+- **FE**: React
 
-- **BE**:
+- **BE**: Django
 
-- **Tool**:
+- **Tool**: Figma
